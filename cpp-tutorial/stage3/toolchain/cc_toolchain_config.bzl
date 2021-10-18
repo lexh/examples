@@ -17,39 +17,38 @@ def _impl(ctx):
     tool_paths = [
         tool_path(
             name = "gcc",
-            path = "/home/lex/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin/clang",
+            path = "/Users/lherbert/Downloads/clang+llvm-12.0.0-x86_64-apple-darwin/bin/clang",
         ),
         tool_path(
             name = "ld",
-            path = "/home/lex/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin/lld",
+            path = "/Users/lherbert/Downloads/clang+llvm-12.0.0-x86_64-apple-darwin/bin/ld",
         ),
         tool_path(
             name = "ar",
-            path = "/home/lex/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin/llvm-ar",
+            path = "/Users/lherbert/Downloads/clang+llvm-12.0.0-x86_64-apple-darwin/bin/ar",
         ),
         tool_path(
             name = "cpp",
-            path = "/home/lex/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin/clang-cpp",
+            path = "/Users/lherbert/Downloads/clang+llvm-12.0.0-x86_64-apple-darwin/bin/cpp",
         ),
         tool_path(
             name = "gcov",
-            path = "/home/lex/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin/llvm-cov",
+            path = "/Users/lherbert/Downloads/clang+llvm-12.0.0-x86_64-apple-darwin/bin/gcov",
         ),
         tool_path(
             name = "nm",
-            path = "/home/lex/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin/llvm-nm",
+            path = "/Users/lherbert/Downloads/clang+llvm-12.0.0-x86_64-apple-darwin/bin/nm",
         ),
         tool_path(
             name = "objdump",
-            path = "/home/lex/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin/llvm-objdump",
+            path = "/Users/lherbert/Downloads/clang+llvm-12.0.0-x86_64-apple-darwin/bin/objdump",
         ),
         tool_path(
             name = "strip",
-            path = "/home/lex/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/bin/llvm-strip",
+            path = "/Users/lherbert/Downloads/clang+llvm-12.0.0-x86_64-apple-darwin/bin/strip",
         ),
     ]
     features = [
-        # NEW
         feature(
             name = "default_linker_flags",
             enabled = True,
@@ -59,7 +58,7 @@ def _impl(ctx):
                     flag_groups = ([
                         flag_group(
                             flags = [
-                                "-lstdc++",
+                                "-libstdc++",
                             ],
                         ),
                     ]),
@@ -71,9 +70,8 @@ def _impl(ctx):
         ctx = ctx,
         features = features,
         cxx_builtin_include_directories = [
-            "/home/lex/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/include/c++/v1",
-            "/home/lex/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-20.10/lib/clang/11.0.1/include",
-            "/usr/include"
+            "/Users/lherbert/Downloads/clang+llvm-12.0.0-x86_64-apple-darwin/include",
+            "/Users/lherbert/Downloads/clang+llvm-12.0.0-x86_64-apple-darwin/lib",
         ],
         toolchain_identifier = "darwin-toolchain",
         host_system_name = "local",
